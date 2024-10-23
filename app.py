@@ -37,6 +37,7 @@ class FileManager:
 
 # Maintenant on va écrire les 4 méthodes !
 
+# Ouvrir le fichier + lecture 
         def file_path(self):
                 self.file_path = filedialog.askopenfilename(filetypes=[("Fichier Texte","*.txt")])
                 if self.file_path:
@@ -61,3 +62,17 @@ class FileManager:
                                         messagebox.showerror("Erreur",f"Erreur lors de la sauvegarde du fichier : {e}")
                 else:
                         messagebox.showwarning("Avertissement", "Veuillez d'abord ouvrir un fichier.")
+
+# Compter le nombre de lignes dans le fichier
+
+        def count_lines(self):
+                if self.file_path:
+                        try:
+                                with open(self.file, 'r') as file:
+                                        lines = file.readlines()
+                                        line_count = len(lines)
+                                        messagebox.showinfo("Nbr de lignes", f"Nombre de lignes : {line_count} ")
+                        except Exception as e:
+                                message.box.showerror("Erreur", f"Erreur lors du comptage des lignes : {e}")
+                else:
+                        messagebox.showwarning("Attention", "Veuillez d'abord ouvrir un fichier.")
