@@ -3,6 +3,9 @@ from tkinter import filedialog, messagebox # <- En gros ici on importe 2 sous-mo
 
 # Madame Samah nous a dit de créer la classe FileManager qui doit contenir -> Un attribut pour stocker le chemin du fichier + 4 méthodes (rwcs)
 
+# init pour initialiser les attributs de l'objet -> self pour accéder aux attributs et méthodes de l'objet
+# interaction avec un objet externe
+
 class FileManager:
     def __init__(self, master):
         self.master = master
@@ -76,3 +79,24 @@ class FileManager:
                                 message.box.showerror("Erreur", f"Erreur lors du comptage des lignes : {e}")
                 else:
                         messagebox.showwarning("Attention", "Veuillez d'abord ouvrir un fichier.")
+
+# Rechercher un mot clé dans le fichier et afficher les résultat 
+
+        def search_keyword(self):
+                keyword = self.keyword_entry.get()
+                if self.file_path and keyword:
+                        try:
+                                with open(self.file_path, 'r') as file:
+                                        lines = file.readlines()
+                                        maches = [line for line in lines if keyword in line]
+                                        if matches:
+                                                resultat = "Lignes contenant '{}' :\n\n".format(keyword) + "\n".join(matches)
+                                                messagebox.showinfo("Résultats de la recherche", resultat)
+                                        else:
+                                                messagebox.showinfo("Résultats de la recherche", f"Aucune ligne ne contient le mot clé '{keyword}'.")
+                                except Exception as e:
+                                        messagebox.showerror("Erreur",f"Erreur lors de la recherché du mot clé : {e}")
+                        else:
+                                messagebox.showwarning("Avertissement", "Veuillez d'abord ouvrir un fichier et entrer un mot-clé.")
+
+                                
