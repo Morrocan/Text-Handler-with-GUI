@@ -7,7 +7,7 @@ class FileManager:
     def __init__(self, master):
         self.master = master
         self.master.title("Gestionnaire de fichiers")
-        self.file_path = None 
+        self.file_path = None
 
 # On va maintenant créer les éléments de l'interface 
 
@@ -18,7 +18,7 @@ class FileManager:
 
 # Création des boutons de l'interface tkinter
 
-        self.open_button = tk.Button(master, text="Ouvrir un fichier", command=self.open_file)
+        self.open_button = tk.Button(master, text="Ouvrir un fichier", command=self.file_path)
         self.open_button.pack(pady=5)
 
         self.save_button = tk.Button(master, text="Sauvegarder", command=self.save_file)
@@ -36,3 +36,14 @@ class FileManager:
         self.keyword_entry.insert(0, "Entrez le mot-clé ici")
 
 # Maintenant on va écrire les 4 méthodes !
+
+        def file_path(self):
+                self.file_path = filedialog.askopenfilename(filetypes=[("Fichier Texte","*.txt")])
+                if self.file_path:
+                        try:
+                                with open(self.file_path, 'r') as file:
+                                        content = file.read()
+                                        self.text_area.delete(1.0, tk.END)
+                                        self.text_area.insert(tk.END, content)
+                        except Exception as e:
+                                tkinter.messagebox.showerror("Erreur", f"Erreur lors de l'ouverture de fichier : {e}")
