@@ -47,3 +47,17 @@ class FileManager:
                                         self.text_area.insert(tk.END, content)
                         except Exception as e:
                                 tkinter.messagebox.showerror("Erreur", f"Erreur lors de l'ouverture de fichier : {e}")
+
+# Sauvegarde le contenu de la zone texte dans fichier
+
+        def save_file(self):
+                if self.file_path:
+                        try:
+                                with open(self.file_path, 'w') as file:
+                                        content = self.text_area.get(1.0, tk.END)
+                                        file.write(content)
+                                        message.boxshowinfo("Succès", "Fichier sauvegardé avec succès.")
+                                except Exception as e:
+                                        messagebox.showerror("Erreur",f"Erreur lors de la sauvegarde du fichier : {e}")
+                else:
+                        messagebox.showwarning("Avertissement", "Veuillez d'abord ouvrir un fichier.")
