@@ -50,7 +50,7 @@ class FileManager:
                                         self.text_area.delete(1.0, tk.END)
                                         self.text_area.insert(tk.END, content)
                         except Exception as e:
-                                tkinter.messagebox.showerror("Erreur", f"Erreur lors de l'ouverture de fichier : {e}")
+                                messagebox.showerror("Erreur", f"Erreur lors de l'ouverture de fichier : {e}")
 
 # Sauvegarde le contenu de la zone texte dans fichier
 
@@ -60,7 +60,7 @@ class FileManager:
                                 with open(self.file_path, 'w') as file:
                                         content = self.text_area.get(1.0, tk.END)
                                         file.write(content)
-                                        message.boxshowinfo("Succès", "Fichier sauvegardé avec succès.")
+                                        messagebox.showinfo("Succès", "Fichier sauvegardé avec succès.")
                         except Exception as e:
                                 messagebox.showerror("Erreur",f"Erreur lors de la sauvegarde du fichier : {e}")
                 else:
@@ -76,7 +76,7 @@ class FileManager:
                                         line_count = len(lines)
                                         messagebox.showinfo("Nbr de lignes", f"Nombre de lignes : {line_count} ")
                         except Exception as e:
-                                message.box.showerror("Erreur", f"Erreur lors du comptage des lignes : {e}")
+                                messagebox.showerror("Erreur", f"Erreur lors du comptage des lignes : {e}")
                 else:
                         messagebox.showwarning("Attention", "Veuillez d'abord ouvrir un fichier.")
 
@@ -88,7 +88,7 @@ class FileManager:
                         try:
                                 with open(self.file_path, 'r') as file:
                                         lines = file.readlines()
-                                        maches = [line for line in lines if keyword in line]
+                                        matches = [line for line in lines if keyword in line]
                                         if matches:
                                                 resultat = "Lignes contenant '{}' :\n\n".format(keyword) + "\n".join(matches)
                                                 messagebox.showinfo("Résultats de la recherche", resultat)
