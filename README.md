@@ -24,4 +24,4 @@ Application en Python qui permet de gérer des fichiers texte via une interface 
 ## Exemple
 **Test de l'app** : 
 
-
+![Mon GIF explicatif](https://github.com/Morrocan/Text-Handler-with-GUI/blob/main/peek.gif)
