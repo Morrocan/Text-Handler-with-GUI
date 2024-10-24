@@ -61,8 +61,8 @@ class FileManager:
                                         content = self.text_area.get(1.0, tk.END)
                                         file.write(content)
                                         message.boxshowinfo("Succès", "Fichier sauvegardé avec succès.")
-                                except Exception as e:
-                                        messagebox.showerror("Erreur",f"Erreur lors de la sauvegarde du fichier : {e}")
+                        except Exception as e:
+                                messagebox.showerror("Erreur",f"Erreur lors de la sauvegarde du fichier : {e}")
                 else:
                         messagebox.showwarning("Avertissement", "Veuillez d'abord ouvrir un fichier.")
 
@@ -94,9 +94,9 @@ class FileManager:
                                                 messagebox.showinfo("Résultats de la recherche", resultat)
                                         else:
                                                 messagebox.showinfo("Résultats de la recherche", f"Aucune ligne ne contient le mot clé '{keyword}'.")
-                                except Exception as e:
-                                        messagebox.showerror("Erreur",f"Erreur lors de la recherché du mot clé : {e}")
-                        else:
-                                messagebox.showwarning("Avertissement", "Veuillez d'abord ouvrir un fichier et entrer un mot-clé.")
+                        except Exception as e:
+                                messagebox.showerror("Erreur",f"Erreur lors de la recherché du mot clé : {e}")
+                else:
+                        messagebox.showwarning("Avertissement", "Veuillez d'abord ouvrir un fichier et entrer un mot-clé.")
 
                                 
