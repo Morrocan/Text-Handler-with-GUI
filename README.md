@@ -20,4 +20,8 @@ Application en Python qui permet de gérer des fichiers texte via une interface 
    ```bash
    git clone https://github.com/votre-utilisateur/text-handler-gui.git
    cd text-handler-gui
+```
+## Exemple
+**Test de l'app** : 
+
 
